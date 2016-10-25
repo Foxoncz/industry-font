@@ -1,7 +1,0 @@
-/* IndustryFont uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
-
-.#{$if-css-prefix}-fire:before { content: "\EB01"; }
-.#{$if-css-prefix}-compas:before { content: "\EB02"; }
-.#{$if-css-prefix}-cutlery:before { content: "\EB03"; }
-.#{$if-css-prefix}-medkit:before { content: "\EB04"; }
