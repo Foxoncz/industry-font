@@ -51,14 +51,19 @@ gulp.task('scss', function(){
     .pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('doc', ['font', 'scss', 'png'], function(){
+gulp.task('build', ['font', 'scss', 'png'], function(){
+  return gulp.src(['src/html/index.html', 'dist/**/*'])
+    .pipe(gulp.dest('doc/'));
+});
+
+gulp.task('doc', ['build'], function(){
   return gulp.src(['src/html/index.html', 'dist/**/*'])
     .pipe(gulp.dest('doc/'));
 });
 
 gulp.task('deploy',['doc'], function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./doc/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('default', ['font', 'scss', 'png', 'doc'], function(){});
+gulp.task('default', ['build', 'doc'], function(){});
