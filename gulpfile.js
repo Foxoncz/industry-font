@@ -16,8 +16,8 @@ var autoprefixer = require('gulp-autoprefixer');
 //deploy
 var ghPages = require('gulp-gh-pages');
 
-gulp.task('font', function(){
-  return gulp.src(['src/svg/*.svg'])
+gulp.task('build:font', function(){
+  return gulp.src('src/svg/**/*')
     .pipe(iconfont({
       fontName: 'industry-font',
       prependUnicode: true,
@@ -27,15 +27,8 @@ gulp.task('font', function(){
     .pipe(gulp.dest('dist/fonts/'));
 });
 
-gulp.task('png', function () {
-    gulp.src('src/svg/*.svg')
-        .pipe(raster())
-		.pipe(rename({extname: '.png'}))
-        .pipe(gulp.dest('dist/png/'));
-});
-
-gulp.task('scss', function(){
-  return gulp.src(['src/scss/industry-font.scss'])
+gulp.task('build:scss', function(){
+  return gulp.src('src/scss/industry-font.scss')
     .pipe(sass())
 	.pipe(rename('industry-font.css'))
     .pipe(autoprefixer({
@@ -51,19 +44,35 @@ gulp.task('scss', function(){
     .pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('build', ['font', 'scss', 'png'], function(){
-  return gulp.src(['src/html/index.html', 'dist/**/*'])
+gulp.task('build:all', ['build:font', 'build:scss'], function(){});
+
+gulp.task('doc:dist', ['build:all'], function(){
+  return gulp.src('dist/**/*')
     .pipe(gulp.dest('doc/'));
 });
 
-gulp.task('doc', ['build'], function(){
-  return gulp.src(['src/html/index.html', 'dist/**/*'])
+gulp.task('doc:html', function(){
+  return gulp.src('src/html/**/*')
     .pipe(gulp.dest('doc/'));
 });
+
+gulp.task('doc:svg', function(){
+  return gulp.src('src/svg/**/*')
+    .pipe(gulp.dest('doc/svg'));
+});
+
+gulp.task('doc:png', function () {
+    return gulp.src('src/svg/**/*')
+        .pipe(raster())
+		.pipe(rename({extname: '.png'}))
+        .pipe(gulp.dest('doc/png/'));
+});
+
+gulp.task('doc:all', ['doc:dist', 'doc:html', 'doc:svg', 'doc:png'], function(){});
 
 gulp.task('deploy',['doc'], function() {
   return gulp.src('./doc/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('default', ['build', 'doc'], function(){});
+gulp.task('default', ['build:all', 'doc:all'], function(){});

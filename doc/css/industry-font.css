@@ -1,0 +1,172 @@
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'IndustryFont';
+  src: url("../fonts/industry-font.eot");
+  src: url("../fonts/industry-font.eot") format("embedded-opentype"), url("../fonts/industry-font.woff2") format("woff2"), url("../fonts/industry-font.woff") format("woff"), url("../fonts/industry-font.ttf") format("truetype"), url("../fonts/industry-font.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.if {
+  display: inline-block;
+  font: normal normal normal 14px/1 IndustryFont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* makes the font 33% larger relative to the icon container */
+.if-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.if-2x {
+  font-size: 2em; }
+
+.if-3x {
+  font-size: 3em; }
+
+.if-4x {
+  font-size: 4em; }
+
+.if-5x {
+  font-size: 5em; }
+
+.if-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+.if-ul {
+  padding-left: 0;
+  margin-left: 2.14286em;
+  list-style-type: none; }
+  .if-ul > li {
+    position: relative; }
+
+.if-li {
+  position: absolute;
+  left: -2.14286em;
+  width: 2.14286em;
+  top: 0.14286em;
+  text-align: center; }
+  .if-li.if-lg {
+    left: -1.85714em; }
+
+.if-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em; }
+
+.if-pull-left {
+  float: left; }
+
+.if-pull-right {
+  float: right; }
+
+.if.if-pull-left {
+  margin-right: .3em; }
+
+.if.if-pull-right {
+  margin-left: .3em; }
+
+.if.pull-left {
+  margin-right: .3em; }
+
+.if.pull-right {
+  margin-left: .3em; }
+
+.if-spin {
+  animation: if-spin 2s infinite linear; }
+
+.if-pulse {
+  animation: if-spin 1s infinite steps(8); }
+
+@keyframes if-spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(359deg); } }
+
+.if-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  transform: rotate(90deg); }
+
+.if-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  transform: rotate(180deg); }
+
+.if-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  transform: rotate(270deg); }
+
+.if-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  transform: scale(-1, 1); }
+
+.if-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  transform: scale(1, -1); }
+
+:root .if-rotate-90,
+:root .if-rotate-180,
+:root .if-rotate-270,
+:root .if-flip-horizontal,
+:root .if-flip-vertical {
+  -webkit-filter: none;
+  filter: none; }
+
+.if-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle; }
+
+.if-stack-1x, .if-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+.if-stack-1x {
+  line-height: inherit; }
+
+.if-stack-2x {
+  font-size: 2em; }
+
+.if-inverse {
+  color: #fff; }
+
+/* IndustryFont uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+.if-fire:before {
+  content: "\EB01"; }
+
+.if-compas:before {
+  content: "\EB02"; }
+
+.if-cutlery:before {
+  content: "\EB03"; }
+
+.if-medkit:before {
+  content: "\EB04"; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
